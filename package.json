@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": {
-  "next": "latest",
-  "react": "latest",
-  "react-dom": "latest",
-  "lucide-react": "latest"
+"dependencies": {
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "lucide-react": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
