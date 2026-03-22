@@ -1,5 +1,5 @@
 {
-  "name": "sleek-mono-influencer",
+  "name": "sleek-mono-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,15 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
-"dependencies": {
+  "dependencies": {
     "next": "15.1.9",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "lucide-react": "latest"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest"
   }
 }
