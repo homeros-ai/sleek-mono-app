@@ -1,47 +1,51 @@
-import React, { useState } from 'react';
-import { Search, Filter, Cpu, Database } from 'lucide-react';
-import InfluencerCard from '../components/InfluencerCard';
+import React from 'react';
+
+const influencers = [
+  { id: 1, name: "Melis Erten", handle: "@meliserten", platform: "TikTok", er: "12.4%", benchmark: "Top %1", tags: ["Silent GRWM", "Minimalist"] },
+  { id: 2, name: "Caner & Ezgi", handle: "@canergzi", platform: "Instagram", er: "8.2%", benchmark: "x3 Performance", tags: ["Couple Comedy", "Vlog"] }
+];
 
 export default function Home() {
-  const [influencers] = useState([
-    { id: 1, name: "Melis Erten", handle: "@meliserten", platform: "TikTok", er: "12.4%", benchmark: "Top %1", tags: ["Silent GRWM", "Minimalist"] },
-    { id: 2, name: "Caner & Ezgi", handle: "@canergzi", platform: "Instagram", er: "8.2%", benchmark: "x3 Performance", tags: ["Couple Comedy", "Vlog"] }
-  ]);
-
   return (
-    <div className="bg-white min-h-screen text-black font-sans">
-      <nav className="border-b border-zinc-200 px-8 py-4 flex justify-between items-center sticky top-0 bg-white z-10">
-        <h1 className="font-heading font-bold text-xl uppercase tracking-tighter">Sleek Mono <span className="text-electric-blue">AI</span></h1>
-        <div className="flex gap-8 font-mono text-xs uppercase">
-          <a href="#" className="border-b-2 border-electric-blue pb-1">Directory</a>
-          <a href="#" className="text-zinc-400">Command Center</a>
+    <div className="bg-white min-h-screen text-black">
+      <nav className="border-b border-zinc-200 px-8 py-4 flex justify-between items-center bg-white sticky top-0 z-50">
+        <h1 className="font-bold text-xl uppercase tracking-tighter">Sleek Mono <span className="text-[#0500FF]">AI</span></h1>
+        <div className="flex gap-8 text-[10px] font-mono uppercase">
+          <span className="border-b-2 border-[#0500FF] pb-1 cursor-pointer text-black">Directory</span>
+          <span className="text-zinc-400 cursor-pointer">Command Center</span>
         </div>
       </nav>
       
-      <div className="flex">
-        <aside className="w-64 border-r border-zinc-200 h-[calc(100vh-64px)] p-8 sticky top-16">
-          <div className="space-y-8">
-            <div>
-              <h4 className="font-mono text-[10px] uppercase text-zinc-400 mb-4">Filters</h4>
-              <div className="space-y-2">
-                {['TikTok', 'Instagram', 'YouTube'].map(p => (
-                  <label key={p} className="flex items-center gap-2 text-xs font-mono cursor-pointer">
-                    <input type="checkbox" className="accent-electric-blue" /> {p}
-                  </label>
+      <main className="p-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {influencers.map(inf => (
+          <div key={inf.id} className="border border-zinc-200 p-6 hover:border-[#0500FF] transition-all cursor-pointer group bg-white shadow-sm">
+            <div className="flex justify-between items-start mb-8">
+              <div>
+                <h3 className="font-bold uppercase text-lg leading-tight">{inf.name}</h3>
+                <p className="font-mono text-[10px] text-zinc-400 mt-1">{inf.handle}</p>
+              </div>
+              <span className="bg-zinc-100 px-2 py-1 text-[9px] font-mono uppercase tracking-widest border border-zinc-200">
+                {inf.platform}
+              </span>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="flex justify-between items-end border-b border-zinc-100 pb-4">
+                <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-tighter text-left">Benchmark Analysis</span>
+                <span className="text-[#0500FF] font-bold text-xl italic">{inf.benchmark}</span>
+              </div>
+              
+              <div className="flex gap-1 flex-wrap">
+                {inf.tags.map(tag => (
+                  <span key={tag} className="text-[9px] bg-black text-white px-2 py-0.5 font-mono uppercase tracking-widest">
+                    #{tag}
+                  </span>
                 ))}
               </div>
             </div>
           </div>
-        </aside>
-
-        <main className="flex-1 p-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {influencers.map(inf => (
-              <InfluencerCard key={inf.id} data={inf} />
-            ))}
-          </div>
-        </main>
-      </div>
+        ))}
+      </main>
     </div>
   );
 }
